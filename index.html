@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+           background-image: url('https://cdn.wallpapersafari.com/22/93/tqj8le.jpg');
+           background-size: cover;
+            background-repeat: no-repeat;
+        }
+        section{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #valueOne{
+            width: 500px;
+            height: 6vh;
+            border-radius: 32px;
+            border: none;
+            padding-left: 15px;
+            font-size: 22px;
+        }
+        #Guess {
+            margin: 15px;
+            width: 120px;
+            height: 40px;
+            background-color: rgb(122, 219, 38);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-size: 32px;
+            border-radius: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 style="font-size: 25px; margin: 15px; margin-right:600px; color: rgb(255, 255, 0); ">I Thought a random number in between 1 and 100. <span style="color: rgb(243, 227, 0);">What is It?</span></h1>
+    <input type="number" id="valueOne" placeholder="Enter the number" style="margin-right:600px;">
+    <button id="Guess" onclick="fun()" style="margin-right:600px;">Find it </button>
+    <p id="demo" style="font-size: 24px; font-weight: 900;"></p>
+    <p id="lives" style="font-size: 18px; font-weight: 900; padding: 5px; background-color: rgb(255, 255, 0); color: rgb(244, 37, 37);"></p>
+</section>
+    <script>
+        value = Math.floor(Math.random()*100)
+        console.log(value)
+        i = 0
+        const fun = () => {
+        if(i == 9) window.location.href = 'page3.html'
+        if(value == document.getElementById("valueOne").value) window.location.href = 'cor'
+        else if(value > document.getElementById("valueOne").value) document.getElementById("demo").innerHTML = `You are almost near!!😒 The number is Low than My guess, ${(10-i)} Lives remaining`
+        else if(value < document.getElementById("valueOne").value) document.getElementById("demo").innerHTML = `You guess is too high!!🫥 The number is High than My guess ${(10-i)} Lives remaining`
+        document.getElementById("lives").innerHTML = "Lives " + (10 - i)
+        i++;
+    }
+    </script>
+</body>
+</html>
